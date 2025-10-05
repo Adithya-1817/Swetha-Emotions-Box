@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swetha's Emotions Box 💌</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="greeting" class="greeting"></div>
+
+    <div class="emoji-mascot">💌</div>
+
+    <h2 class="title">Pick Your Emotion, Swetha! 💌</h2>
+
+    <div class="emotions-container">
+        {% for eid, data in emotions.items() %}
+        <div class="emotion-box" data-id="{{ eid }}" style="background-color: {{ data.color }}">
+            {{ data.display }}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="chit-display"></div>
+
+    <div class="chit-counter"></div>
+
+    <button id="galleryBtn">📸 Memory Gallery</button>
+
+    <!-- Memory Gallery Modal -->
+    <div id="galleryModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Memory Gallery 💌</h3>
+            <div id="galleryContent"></div>
+        </div>
+    </div>
+
+    <canvas id="sparkleCanvas"></canvas>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
